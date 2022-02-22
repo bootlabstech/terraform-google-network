@@ -12,13 +12,35 @@ variable "description" {
 }
 
 variable "auto_create_subnetworks" {
-  description = "When set to true, the network is created in 'auto subnet mode' and it will create a subnet for each region automatically."
+  description = <<-EOT
+  {
+   "type": "json",
+   "purpose": "autocomplete",
+   "data": [
+  "true",
+  "false"
+   ],
+   "default":false,
+   "description": "When set to true, the network is created in 'auto subnet mode' and it will create a subnet for each region automatically."
+}
+EOT
   type        = bool
   default     = false
 }
 
 variable "routing_mode" {
-  description = "The network-wide routing mode to use."
+  description = <<-EOT
+  {
+   "type": "json",
+   "purpose": "autocomplete",
+   "data": [
+  "REGIONAL",
+  "GLOBAL"
+   ],
+   "default":"GLOBAL",
+   "description": "The network-wide routing mode to use."
+}
+EOT
   type        = string
   default     = "GLOBAL"
 }
