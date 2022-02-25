@@ -6,4 +6,5 @@ resource "google_compute_network" "vpc_network" {
   routing_mode            = var.routing_mode
   mtu                     = var.mtu
   project                 = var.project
+  tags                    = var.tags
 }
